@@ -15,7 +15,7 @@ import React, { useMemo, useState } from "react";
  *  - specialShapeSurcharge: number (e.g. 0.2 for +20%)
  */
 export default function OfferForm({
-  endpoint = "/wp-json/custom/v1/send-offer",
+  endpoint = "https://test.deineneuewebseite.de/wp-json/custom/v1/send-offer",
   pricePerSqm = 55,
   specialShapeSurcharge = 0.2,
 }) {
@@ -162,7 +162,7 @@ export default function OfferForm({
       }
       setStatus({ ok: true, msg: "Anfrage erfolgreich gesendet!" });
       // Optional: Formular zurücksetzen
-      // resetForm();
+      resetForm();
     } catch (e) {
       setStatus({ ok: false, msg: e.message || "Unbekannter Fehler" });
     } finally {
