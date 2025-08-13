@@ -189,7 +189,7 @@ export default function OfferForm({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 bg-white/80 backdrop-blur rounded-2xl shadow">
+    <div className="w-full max-w-4xl mx-auto m-1 p-4 sm:p-6 bg-white/80 backdrop-blur rounded-2xl shadow">
       <h1 className="text-2xl sm:text-3xl font-semibold">
         Angebotsanfrage – Fußmatten
       </h1>
