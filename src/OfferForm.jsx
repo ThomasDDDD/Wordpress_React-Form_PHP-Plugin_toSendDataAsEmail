@@ -148,7 +148,7 @@ export default function OfferForm({
           formData.append(`doorMats_${index}_logo`, m.logo, m.logo.name);
         }
       });
-
+      console.log(formData);
       const res = await fetch(endpoint, {
         method: "POST",
         body: formData,

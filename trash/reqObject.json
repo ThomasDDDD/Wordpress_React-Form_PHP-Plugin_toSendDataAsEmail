@@ -1,0 +1,30 @@
+{
+  "firstName": "Max",
+  "lastName": "Mustermann",
+  "email": "max@example.com",
+  "address": {
+    "street": "Musterstraße 1",
+    "zip": "12345",
+    "city": "Musterstadt"
+  },
+  "doorMats": [
+    {
+      "length": 2.0,
+      "width": 1.0,
+      "shape": "rechteckig",
+      "isSpecialShape": false,
+      "amount": 1,
+      "price": 50.0,
+      "logo": "Datei"
+    },
+    {
+      "length": 1.5,
+      "width": 1.5,
+      "shape": "rund",
+      "isSpecialShape": true,
+      "amount": 2,
+      "price": 120.0,
+      "logo": "Datei"
+    }
+  ]
+}
