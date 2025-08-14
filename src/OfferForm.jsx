@@ -15,7 +15,7 @@ import React, { useMemo, useState } from "react";
  *  - specialShapeSurcharge: number (e.g. 0.2 for +20%)
  */
 export default function OfferForm({
-  endpoint = "https://test.deineneuewebseite.de/wp-json/custom/v1/send-offer",
+  endpoint = "https://DEINEWEBSITE.de/wp-json/custom/v1/send-offer",
   pricePerSqm = 55,
   specialShapeSurcharge = 0.2,
 }) {
@@ -290,13 +290,6 @@ export default function OfferForm({
         <section>
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-medium mb-3">Fußmatten</h2>
-            {/* <button
-              type="button"
-              onClick={addMat}
-              className="inline-flex items-center rounded-xl bg-black text-white text-sm px-3 py-2 hover:opacity-90"
-            >
-              + Matte hinzufügen
-            </button> */}
           </div>
 
           <div className="space-y-6">

@@ -1,8 +1,10 @@
 # React Eingabeformular + Wordpress Plugin
 
-Hierbei handelt es sich um eine Kombination aus einem React Eingabeformular und einem Wordpress php Plugin welches die erhobenen Daten aus der form in html Format als email via Wordpress WP-MAil versendet.
+Hierbei handelt es sich um eine Kombination aus einem React Eingabeformular und einem Wordpress php Plugin welches die erhobenen Daten aus der Form im html Format als Email via Wordpress WP-MAil versendet.
 
 Ich erkläre hier nur die Installation und den Workflow. Um das Formular selbst zu verändern setzte ich Kenntnisse in REACT und in PHP vorraus um beides in Kombination für sich selbst anzupassen.
+
+Bei gewünschter Individueller Anpassung gerne eine Anfrage an MisterTakkaT@gmail.com - Alles ist möglich!
 
 ## Plugin
 
@@ -11,7 +13,7 @@ Das Plugin dient als API Endpunkt. Es nimmt die Daten aus dem Eingabeformular un
 Teste den WP-Mailer:
 Wordpress Dashboard -> WP Mail SMTP -> Werkzeuge -> Email Test
 
-Versuche eine Testmail an die Adresse die das Plugin erreichen soll zu senden. Ist WP-Mail korrekt eingerichtet kann mit der einrichtung fortgesetzt werden.
+Versuche eine Testmail an die Adresse die das Plugin erreichen soll zu senden. Funktioniert WP-Mail korrekt kann mit der Einrichtung des Plugins fortgesetzt werden. (Prüfe auch ob die Mail wirklich ankommt!)
 
 ### Einstellungen des Plugins
 
@@ -35,35 +37,11 @@ fertig.
 
 ## React-Form
 
-Die React Form ist dafür gemacht als Html-Element in Wordpress/Elementor via iframe eingefügt zu werden.
-
-Da Die Form eine dynamische Höhe hat ist ein Observer integriert der dem Elternelement (dem Html-Element) bei Änderung seiner Höhe dessen Wert angibt. Dafür muss das Html- Element wie folgt integriert werden:
-
-    -> Html-Element erstellen und im Codeblock Folgendes eintragen:
-
-        <div id="iframe-container">
-            <iframe id="react-iframe" src="/wp-content/uploads/react-offer-form/index.html" width="100%" style="border:0;"></iframe>
-        </div>
-
-        <script>
-            const iframe = document.getElementById("react-iframe");
-
-            window.addEventListener("message", (event) => {
-                const offset = Number(event.data.height)+10
-
-                if (event.data.type === "setHeight") {
-                    iframe.style.height = offset + "px";
-                    }
-            });
-        </script>
-
-Die offset +10 entspricht eine Pixelangabe die der Wordpresscontainer höher sein sollte wie Sein Inhalt. Die 10 sind mindest Empfehlung um ein scrollcontainer zu vermeiden.
-
 ### Einstellungen der Form
 
 Die Form kann beliebig angepasst werden. Die erhobenen Daten müssen am Ende natürlich vom Plugin verarbeiten können. Normaler REST-API Flow.
 
-### Integration
+### build and save
 
 Ein externes Hosten des build ist nicht möglich ohne die cors Einstellungen in Wordpress zu bearbeiten. Da es sich dabei um Sicherheitsrelevante Kommunikation handelt wird dringend empfohlen den build im Hostinganbieter der Wordpressseite zu speichern.
 
@@ -84,7 +62,33 @@ Darunter sollte es wie folgt aussehen:
                     index-irgendwas.js
                     index-etwasAnderes.css
 
-sollte der pfad aus irgendwelchen Gründen anders aussehen muss dieser auch im iframe angepasst werden!
+sollte der pfad aus irgendwelchen Gründen anders aussehen muss dieser auch im nachfolgenden iframe angepasst werden!
+
+### Integration
+
+Die React Form ist dafür gemacht als Html-Element in Wordpress/Elementor via iframe eingefügt zu werden.
+
+Da die Form eine dynamische Höhe hat ist ein Observer integriert der dem Elternelement (dem Html-Element) bei Änderung seiner Höhe dessen Wert angibt. Dafür muss das Html- Element wie folgt integriert werden:
+
+    -> Html-Element erstellen und im Codeblock Folgendes eintragen:
+
+        <div id="iframe-container">
+            <iframe id="react-iframe" src="/wp-content/uploads/react-offer-form/index.html" width="100%" style="border:0;"></iframe>
+        </div>
+
+        <script>
+            const iframe = document.getElementById("react-iframe");
+
+            window.addEventListener("message", (event) => {
+                const offset = Number(event.data.height)+10
+
+                if (event.data.type === "setHeight") {
+                    iframe.style.height = offset + "px";
+                    }
+            });
+        </script>
+
+Die offset +10 entspricht eine Pixelangabe die der Wordpresscontainer höher sein sollte wie Sein Inhalt. Die 10 sind mindest Empfehlung um ein scrollcontainer zu vermeiden.
 
 ## weitere Informationen
 
