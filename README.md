@@ -1,8 +1,12 @@
-# Eingabeformular + Wordpress Plugin
+# React Eingabeformular + Wordpress Plugin
+
+Hierbei handelt es sich um eine Kombination aus einem React Eingabeformular und einem Wordpress php Plugin welches die erhobenen Daten aus der form in html Format als email via Wordpress WP-MAil versendet.
+
+Ich erkläre hier nur die Installation und den Workflow. Um das Formular selbst zu verändern setzte ich Kenntnisse in REACT und in PHP vorraus um beides in Kombination für sich selbst anzupassen.
 
 ## Plugin
 
-Das Plugin dient als API Endpunkt. Es nimmt die Daten aus dem EIngabeformular und verwandelt diese in ein HTML format und sendet es als email über den Wordpress WP-Mailer. (Dieser muss Eingerichtet sein)
+Das Plugin dient als API Endpunkt. Es nimmt die Daten aus dem Eingabeformular und verwandelt diese in ein HTML format und sendet es als email über den Wordpress WP-Mailer. (Dieser muss Eingerichtet sein)
 
 Teste den WP-Mailer:
 Wordpress Dashboard -> WP Mail SMTP -> Werkzeuge -> Email Test
@@ -11,11 +15,11 @@ Versuche eine Testmail an die Adresse die das Plugin erreichen soll zu senden. I
 
 ### Einstellungen des Plugins
 
-1. Das Plugin ist auf das vorliegende Eingabeformular ausgerichtet. Es ist in php geschrieben.
-   WIll man ein individuelle Formulardaten verarbeiten, muss natürlich die Datenverarbeitung des PlugIn angepasst werden!
+1. Das Plugin ist auf das vorliegende Eingabeformular ausgerichtet. Es ist in PHP geschrieben.
+   Will man individuelle Formulardaten verarbeiten, muss natürlich die Datenverarbeitung des PlugIn angepasst werden!
 
 2. Empfängermail anpassen.
-   Im "react-offer-form-mailer" unter Zeile 120 die gewünschte Empfängermail eintragen.
+   Im "react-offer-form-mailer.php" unter Zeile 120 die gewünschte Empfänger Email eintragen.
 
 ### Integration
 
@@ -33,7 +37,7 @@ fertig.
 
 Die React Form ist dafür gemacht als Html-Element in Wordpress/Elementor via iframe eingefügt zu werden.
 
-Da Die Form eine dynamische Höhe hat ist ein Observer integriert der dem Elternelement (dem Html-Element) bei Änderung seiner Höhe dessen Wert angibt dafür muss das Html- Element wie folgt integriert werden:
+Da Die Form eine dynamische Höhe hat ist ein Observer integriert der dem Elternelement (dem Html-Element) bei Änderung seiner Höhe dessen Wert angibt. Dafür muss das Html- Element wie folgt integriert werden:
 
     -> Html-Element erstellen und im Codeblock Folgendes eintragen:
 
@@ -57,7 +61,7 @@ Die offset +10 entspricht eine Pixelangabe die der Wordpresscontainer höher sei
 
 ### Einstellungen der Form
 
-Die Form kann beliebig angepasst werden. Die erhobenen Daten muss am Ende natürlich das Plugin verarbeiten können.
+Die Form kann beliebig angepasst werden. Die erhobenen Daten müssen am Ende natürlich vom Plugin verarbeiten können. Normaler REST-API Flow.
 
 ### Integration
 
@@ -88,7 +92,7 @@ Unter trash findet man die Datei:
 
     email_aus_Plugin_bsp.html
 
-So sieht der Ihnalt der email aus die das Plugin nach eingabe ins Formular versendet.
+So sieht der Ihnalt der Email aus die das Plugin nach Eingabe ins Formular versendet.
 Für eine schönere Optik muss inline style im Plugin eingefügt werden da das versendete Format html ist lässt sich dies mit css stylen.
 
     reqObject.json
